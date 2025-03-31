@@ -5,10 +5,10 @@ from src.ml_algorithms import predict_temperature, cluster_data, detect_anomalie
 from src.visualization import plot_temperature, plot_heatmap, plot_scatter
 
 def main():
-    # Initialize the argument parser
+    # Initialize argument parser
     parser = argparse.ArgumentParser(description="Climate Change Impact Analyzer")
     
-    # Define the arguments the user can input
+    # Data manipulation
     parser.add_argument('--load', type=str, help='Path to the climate data CSV or JSON file', required=True)
     parser.add_argument('--clean', action='store_true', help='Clean the data (remove missing values, duplicates)')
     parser.add_argument('--normalize', action='store_true', help='Normalize the data')
@@ -37,47 +37,47 @@ def main():
     # Clean the data if --clean flag is provided
     if args.clean:
         print("Cleaning the data...")
-        df = clean_data(df)
+        df = clean_data()   #(df)
     
     # Normalize the data if --normalize flag is provided
     if args.normalize:
         print("Normalizing the data...")
-        df = normalize_data(df)
+        df = normalize_data()   #(df)
 
+    print("Raw data: ", read_data())
+    
     # Predict temperature if --predict flag is provided
     if args.predict:
         print("Predicting temperature using machine learning model...")
-        predictions = predict_temperature(df)
+        predictions = predict_temperature()   #(df)
         print("Predictions: ", predictions)
 
     # Perform clustering if --cluster flag is provided
     if args.cluster:
         print("Clustering the data...")
-        cluster_results = cluster_data(df)
+        cluster_results = cluster_data()   #(df)
         print("Cluster Results: ", cluster_results)
 
     # Detect anomalies if --anomaly flag is provided
     if args.anomaly:
         print("Detecting anomalies in the data...")
-        anomalies = detect_anomalies(df)
+        anomalies = detect_anomalies()   #(df)
         print("Anomalies detected: ", anomalies)
 
     # Plot temperature over time if --plot-temperature flag is provided
     if args.plot_temperature:
         print("Plotting temperature over time...")
-        plot_temperature(df)
+        plot_temperature()   #(df)
 
     # Plot heatmap of correlations if --plot-heatmap flag is provided
     if args.plot_heatmap:
         print("Plotting heatmap of correlations...")
-        plot_heatmap(df)
+        plot_heatmap()   #(df)
 
     # Plot scatter plot if --plot-scatter flag is provided
     if args.plot_scatter:
         print("Plotting scatter plot...")
-        plot_scatter(df)
-
-    print("Raw data: ", read_data())
+        plot_scatter()   #(df)
 
 if __name__ == "__main__":
     main()
