@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from src.data_processing import load_data, clean_data, normalize_data
+from src.data_processing import load_data, read_data, clean_data, normalize_data
 from src.ml_algorithms import predict_temperature, cluster_data, detect_anomalies
 from src.visualization import plot_temperature, plot_heatmap, plot_scatter
 
@@ -76,6 +76,8 @@ def main():
     if args.plot_scatter:
         print("Plotting scatter plot...")
         plot_scatter(df)
+
+    print("Raw data: ", read_data())
 
 if __name__ == "__main__":
     main()
