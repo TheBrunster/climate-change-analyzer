@@ -1,9 +1,14 @@
+import config
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 def load_data(file_path):
     df = pd.read_csv(file_path)
+    config.data = df
     return df
+
+def read_data(config.data):
+    return config.data
 
 def clean_data(df):
     df = df.dropna()  # Drop rows with missing values
