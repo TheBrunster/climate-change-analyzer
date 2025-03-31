@@ -10,15 +10,13 @@ def load_data(file_path):
 def read_data():
     return config.data
 
-def clean_data(df):
-    df = config.data
+def clean_data(df=config.data):
     df = df.dropna()  # Drop rows with missing values
     df = df.drop_duplicates()  # Drop duplicate rows
     config.data = df
     return df
 
-def normalize_data(df):
-    df = config.data
+def normalize_data(df=config.data):
     scaler = MinMaxScaler()
     df_scaled = scaler.fit_transform(df)
     df = pd.DataFrame(df_scaled, columns=df.columns)
