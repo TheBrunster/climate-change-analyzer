@@ -1,6 +1,7 @@
+import config
 import matplotlib.pyplot as plt
 
-def plot_temperature(df):
+def plot_temperature(df=config.data):
     plt.figure(figsize=(10, 6))
     plt.plot(df['Date'], df['Temperature'], label='Temperature')
     plt.xlabel('Year')
