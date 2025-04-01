@@ -13,5 +13,5 @@ def plot_temperature(df=config.data):
 def plot_heatmap(df=config.data):
     print("<heatmap>")
 
-def plot_scatter(df=config.data, xColumn, yColumn):
+def plot_scatter(df=config.data, xColumn="", yColumn=""):
     print(f"<scatter>:<x={xColumn}><y={yColumn}>")
