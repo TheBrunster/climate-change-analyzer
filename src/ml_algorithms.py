@@ -13,3 +13,8 @@ def predict_temperature(df=config.data):
     predictions = model.predict(X_test)
     return predictions
 
+def cluster_data(df=config.data):
+    return ["<cluster_data>"]
+
+def detect_anomalies(df=config.data):
+    return ["<anomalies>"]
